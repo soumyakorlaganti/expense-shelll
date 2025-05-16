@@ -40,7 +40,7 @@ rm -rf /user/share/nginx/html/* &>>$LOGFILE
 VALIDATE $? "Removing existing content"
 
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$LOGFILE
-VALIDATE $? "Downloading frontend"
+VALIDATE $? "Downloading frontend code"
 
 cd /usr/share/nginx/html &>>$LOGFILE
 unzip /tmp/frontend.zip &>>$LOGFILE
@@ -51,4 +51,4 @@ cp /home/ec2-user/expense-shelll/expense.conf /etc/nginx/default.d/expense.conf 
 VALIDATE $? "Copied expense conf"
 
 systemctl restart nginx &>>$LOGFILE
-VALIDATE $? "Restarting nginx"
+VALIDATE $? "Restarting nginx" 
